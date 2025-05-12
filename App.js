@@ -1,4 +1,42 @@
+import React from 'react';
+import {ImageBackground, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+const image = require('./assets/fotoLimon.jpg');
+
+const App = () => (
+  <SafeAreaProvider>
+    <SafeAreaView style={styles.container} edges={['left', 'right']}>
+      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+        <Text style={styles.text}>Inside</Text>
+      </ImageBackground>
+    </SafeAreaView>
+  </SafeAreaProvider>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  text: {
+    color: 'white',
+    fontSize: 42,
+    lineHeight: 84,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    backgroundColor: '#000000c0',
+  },
+});
+
+export default App;
+
+
+/*
 import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView, ImageBackground, StyleSheet, Text, View, TextInput, TouchableOpacity, Pressable } from 'react-native';
 
 export default function App() {
@@ -7,6 +45,9 @@ export default function App() {
   const botonPresionado = () => styles.boton= backgroundColor='blue';
 
   return (
+    <View style={styles.container}>
+      <Text>Open up App.js to start working on your app!</Text>
+      <StatusBar style="auto" />
     
     <SafeAreaView style = {styles.container} >
     <View>
@@ -42,10 +83,7 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
+@@ -17,4 +49,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -61,3 +99,4 @@ const styles = StyleSheet.create({
   }
 
 });
+*/
