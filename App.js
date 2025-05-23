@@ -37,7 +37,7 @@ export default App;
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import {Animated, StyleSheet, SafeAreaView, Image, ImageBackground, Text, View, TextInput, Alert, TouchableOpacity, Pressable } from 'react-native';
-const imgPerfil = require('./assets/fotoLimon.jpg');
+const imgPerfil = require('./assets/fotoPerfil.png');
 const backgroundImg = require('./assets/fotoBackground.jpg');
 
 
@@ -76,7 +76,6 @@ export default function App() {
       <ImageBackground source={backgroundImg} style={styles.image} resizeMode="cover">
       
         <View style={styles.container}>        
-        
           <View>            
             <Image source={imgPerfil} style={styles.imgPerfil} />
 
@@ -96,16 +95,16 @@ export default function App() {
 
             <Animated.View style={{ opacity }}>
               <Pressable
-                onpressIn={pressIn}
-                onpressOut={pressOut}
+                onPressIn={pressIn}
+                onPressOut={pressOut}
                 style={styles.botonSecundario} 
               >
                 <Text style={styles.botonSecundarioTexto}>Ver Perfil</Text>
               </Pressable>
             </Animated.View>
-          
+            </View>
         </View>
-        </View>
+ 
       </ImageBackground>
     </SafeAreaView>
   );
@@ -119,13 +118,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
     backgroundColor: 'rgba(0,0,0,0.4)',
-    width: 450,
-    height: 50,
+    padding: 20,
+    borderRadius: 15,
+    alignItems: 'center',
+    maxWidth: 350,
+    width: '90%',
   },
   imgPerfil: {
     width: 120,
@@ -173,4 +171,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-});
+});       
