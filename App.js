@@ -1,43 +1,8 @@
-/*import React from 'react';
-import {ImageBackground, StyleSheet, Text} from 'react-native';
-import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
-const image = require('./assets/fotoLimon.jpg');
-
-const App = () => (
-  <SafeAreaProvider>
-    <SafeAreaView style={styles.container} edges={['left', 'right']}>
-      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-        <Text style={styles.text}>Inside</Text>
-      </ImageBackground>
-    </SafeAreaView>
-  </SafeAreaProvider>
-);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  image: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  text: {
-    color: 'white',
-    fontSize: 42,
-    lineHeight: 84,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    backgroundColor: '#000000c0',
-  },
-});
-
-export default App;
-*/
-
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import {Animated, StyleSheet, SafeAreaView, Image, ImageBackground, Text, View, TextInput, Alert, TouchableOpacity, Pressable } from 'react-native';
-const imgPerfil = require('./assets/fotoPerfil.png');
+const fotoVera = require('./assets/fotoPerfil.png');
+const fotoJuli = require('./assets/fotoPerfil2.png');
 const backgroundImg = require('./assets/fotoBackground.jpg');
 
 
@@ -48,7 +13,7 @@ export default function App() {
 
 
   const contactar = () => {
-    Alert.alert('Mensaje enviado', mensaje);
+    Alert.alert('Mensaje enviado', msg);
   };
 
   const pressIn = () => {
@@ -74,37 +39,67 @@ export default function App() {
       <StatusBar backgroundColor="#f5a6ca" barStyle="light-content" />
 
       <ImageBackground source={backgroundImg} style={styles.image} resizeMode="cover">
-      
-        <View style={styles.container}>        
-          <View>            
-            <Image source={imgPerfil} style={styles.imgPerfil} />
 
-            <Text style={styles.nombre}>Vera Romanowicz</Text>
-            <Text style={styles.titulo}>Desarrolladora frontend</Text>
+        {/*  <View style={styles.viewCards}>  */}
+          <View style={styles.container}>        
+              <Image source={fotoVera} style={styles.fotoPerfil} />
 
-            <TextInput
-              style={styles.input}
-              placeholder='Enter a message'
-              onChangeText={setMsg}
-              value={msg}
-            />
-            
-            <TouchableOpacity style={styles.boton} onPress={contactar}>
-              <Text style={styles.botonTexto}>Contactar</Text>
-            </TouchableOpacity>
+              <Text style={styles.nombre}>Vera Romanowicz</Text>
+              <Text style={styles.titulo}>Desarrolladora frontend</Text>
 
-            <Animated.View style={{ opacity }}>
-              <Pressable
-                onPressIn={pressIn}
-                onPressOut={pressOut}
-                style={styles.botonSecundario} 
-              >
-                <Text style={styles.botonSecundarioTexto}>Ver Perfil</Text>
-              </Pressable>
-            </Animated.View>
-            </View>
-        </View>
- 
+              <TextInput
+                style={styles.input}
+                placeholder='Escribe tu mensaje'
+                onChangeText={setMsg}
+                value={msg}
+              />
+              
+              <TouchableOpacity style={styles.boton} onPress={contactar}>
+                <Text style={styles.botonTexto}>Contactar</Text>
+              </TouchableOpacity>
+
+              <Animated.View style={{ opacity }}>
+                <Pressable
+                  onPressIn={pressIn}
+                  onPressOut={pressOut}
+                  style={styles.botonSecundario} 
+                >
+                  <Text style={styles.botonSecundarioTexto}>Ver Perfil</Text>
+                </Pressable>
+              </Animated.View>
+          </View>
+
+
+          <View style={styles.container}>        
+              <Image source={fotoJuli} style={styles.fotoPerfil} />
+
+              <Text style={styles.nombre}>Julieta Wainhaus Barber</Text>
+              <Text style={styles.titulo}>Desarrolladora backend</Text>
+
+              <TextInput
+                style={styles.input}
+                placeholder='Escribe tu mensaje'
+                onChangeText={setMsg}
+                value={msg}
+              />
+              
+              <TouchableOpacity style={styles.boton} onPress={contactar}>
+                <Text style={styles.botonTexto}>Contactar</Text>
+              </TouchableOpacity>
+
+              <Animated.View style={{ opacity }}>
+                <Pressable
+                  onPressIn={pressIn}
+                  onPressOut={pressOut}
+                  style={styles.botonSecundario} 
+                >
+                  <Text style={styles.botonSecundarioTexto}>Ver Perfil</Text>
+                </Pressable>
+              </Animated.View>
+          </View>
+
+        {/*  </View>  */}
+
       </ImageBackground>
     </SafeAreaView>
   );
@@ -116,8 +111,19 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    width: '100%',
+    height: '100%',
   },
+
+  /*  viewCards: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    gap: 20,
+  },  */
+  
   container: {
+    marginVertical: 25,
     backgroundColor: 'rgba(0,0,0,0.4)',
     padding: 20,
     borderRadius: 15,
@@ -125,7 +131,7 @@ const styles = StyleSheet.create({
     maxWidth: 350,
     width: '90%',
   },
-  imgPerfil: {
+  fotoPerfil: {
     width: 120,
     height: 120,
     borderRadius: 60,
@@ -143,7 +149,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 50,
-    width: '100%',
+    width: '80%',
     backgroundColor: '#fff',
     borderRadius: 10,
     paddingHorizontal: 15,
@@ -159,6 +165,7 @@ const styles = StyleSheet.create({
   botonTexto: {
     color: '#fff',
     fontWeight: 'bold',
+    textAlign: 'center'
   },
   botonSecundario: {
     paddingVertical: 12,
@@ -169,6 +176,7 @@ const styles = StyleSheet.create({
   botonSecundarioTexto: {
     color: '#f5a6ca',
     fontWeight: 'bold',
+    textAlign: 'center'
   },
 
 });       
